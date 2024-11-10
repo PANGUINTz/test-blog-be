@@ -38,13 +38,13 @@ export class Blogs {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.blog)
-  @JoinColumn({ name: 'user_id' })
-  user: User;
-
-  @OneToMany(() => Comments, (comment) => comment.blog, {
+  @ManyToOne(() => User, (user) => user.blog ,{
     cascade: true,
     onDelete: 'CASCADE',
   })
+  @JoinColumn({ name: 'user_id' })
+  user: User;
+
+  @OneToMany(() => Comments, (comment) => comment.blog)
   comment: Comments[];
 }

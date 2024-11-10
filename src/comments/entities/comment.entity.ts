@@ -27,11 +27,17 @@ export class Comments {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @ManyToOne(() => Blogs, (blog) => blog.comment)
+  @ManyToOne(() => Blogs, (blog) => blog.comment, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'blog_id' })
   blog: Blogs;
 
-  @ManyToOne(() => User, (user) => user.comment)
+  @ManyToOne(() => User, (user) => user.comment,{
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'user_id' })
   user: User;
 }

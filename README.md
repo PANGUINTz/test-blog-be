@@ -2,6 +2,7 @@
 
 - git clone git_remote_url
 - npm install
+- npm run start:dev
 
 - สร้างไฟล์ env
 
